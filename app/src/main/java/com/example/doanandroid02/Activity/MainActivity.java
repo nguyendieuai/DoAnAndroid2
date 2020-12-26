@@ -12,15 +12,22 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.ViewFlipper;
 
+import com.example.doanandroid02.Adapter.CategoryAdapter;
+import com.example.doanandroid02.Model.Category;
+import com.example.doanandroid02.Model.Product;
 import com.example.doanandroid02.R;
+import com.example.doanandroid02.Retrofit.DataClient;
+import com.example.doanandroid02.Util.CheckConnectInternet;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -28,18 +35,31 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     NavigationView navigationView;
     ListView listView;
-
-    
+    CategoryAdapter categoryAdapter;
+    CheckConnectInternet checkConnectInternet;
+    MainContract.Presenter mPresenter;
+    ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        Mapping();
-        ActionBar();
-        ActionViewFlipper();
 
+        mProgressBar = findViewById(R.id.progressBar);
+        mPresenter = new MainPresenter(this);
+        CheckConnection();
+    }
+
+    public void CheckConnection() {
+        if (checkConnectInternet.haveNetwork(getApplicationContext())){
+            Mapping();
+            ActionBar();
+            ActionViewFlipper();
+
+            mPresenter.loadCategories();
+        } else {
+            checkConnectInternet.ShowToast_Info(getApplicationContext(),"Check your internet!");
+        }
     }
 
     private void ActionViewFlipper() {
@@ -54,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             viewFlipper.addView(imageView);
         }
+
         viewFlipper.setFlipInterval(5000);
         viewFlipper.setAutoStart(true);
         Animation animation_slide_in = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_in_right);
@@ -82,5 +103,26 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview);
         navigationView = findViewById(R.id.navigationview);
         listView = findViewById(R.id.listviewmain);
+    }
+
+    @Override
+    public void showProgressBar() {
+        mProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        mProgressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void updateListProduct(List<Product> products) {
+
+    }
+
+    @Override
+    public void updateListCategories(List<Category> categories) {
+        categoryAdapter = new CategoryAdapter(categories, getApplicationContext());
+        listView.setAdapter(categoryAdapter);
     }
 }
