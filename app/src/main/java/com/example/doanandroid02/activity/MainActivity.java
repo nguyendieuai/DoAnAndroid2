@@ -1,9 +1,10 @@
-package com.example.doanandroid02.Activity;
+package com.example.doanandroid02.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -15,12 +16,12 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ViewFlipper;
 
-import com.example.doanandroid02.Adapter.CategoryAdapter;
-import com.example.doanandroid02.Model.Category;
-import com.example.doanandroid02.Model.Product;
+import com.example.doanandroid02.adapter.CategoryAdapter;
+import com.example.doanandroid02.adapter.ProductAdapter;
+import com.example.doanandroid02.model.Category;
+import com.example.doanandroid02.model.Product;
 import com.example.doanandroid02.R;
-import com.example.doanandroid02.Retrofit.DataClient;
-import com.example.doanandroid02.Util.CheckConnectInternet;
+import com.example.doanandroid02.util.CheckConnectInternet;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     NavigationView navigationView;
     ListView listView;
     CategoryAdapter categoryAdapter;
+    ProductAdapter productAdapter;
     CheckConnectInternet checkConnectInternet;
     MainContract.Presenter mPresenter;
     ProgressBar mProgressBar;
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             ActionViewFlipper();
 
             mPresenter.loadCategories();
+            mPresenter.loadProducts();
         } else {
             checkConnectInternet.ShowToast_Info(getApplicationContext(),"Check your internet!");
         }
@@ -117,7 +120,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void updateListProduct(List<Product> products) {
-
+        productAdapter = new ProductAdapter(products, getApplicationContext());
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+        recyclerView.setAdapter(productAdapter);
     }
 
     @Override

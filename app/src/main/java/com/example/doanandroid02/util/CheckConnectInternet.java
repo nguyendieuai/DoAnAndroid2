@@ -1,10 +1,8 @@
-package com.example.doanandroid02.Util;
+package com.example.doanandroid02.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.NetworkInfo;
-import android.util.Log;
 import android.widget.Toast;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
