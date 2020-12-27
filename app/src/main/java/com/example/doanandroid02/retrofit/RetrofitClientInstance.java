@@ -1,4 +1,4 @@
-package com.example.doanandroid02.Retrofit;
+package com.example.doanandroid02.retrofit;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

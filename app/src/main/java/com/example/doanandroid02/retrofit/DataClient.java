@@ -1,9 +1,9 @@
-package com.example.doanandroid02.Retrofit;
+package com.example.doanandroid02.retrofit;
 
-import com.example.doanandroid02.Model.Category;
-import com.example.doanandroid02.Model.Customer;
-import com.example.doanandroid02.Model.Product;
-import com.example.doanandroid02.Model.User;
+import com.example.doanandroid02.model.Category;
+import com.example.doanandroid02.model.Customer;
+import com.example.doanandroid02.model.Product;
+import com.example.doanandroid02.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import retrofit2.http.POST;
 public interface DataClient {
 
     @GET("api/categories")
-    Call<ArrayList<Category>> getCategory();
+    Call<List<Category>> getCategory();
 
     @GET("api/products")
     Call<List<Product>> getProduct();

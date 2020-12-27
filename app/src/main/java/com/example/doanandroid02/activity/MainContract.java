@@ -1,9 +1,9 @@
-package com.example.doanandroid02.Activity;
+package com.example.doanandroid02.activity;
 
 import com.example.doanandroid02.BasePresenter;
 import com.example.doanandroid02.BaseView;
-import com.example.doanandroid02.Model.Category;
-import com.example.doanandroid02.Model.Product;
+import com.example.doanandroid02.model.Category;
+import com.example.doanandroid02.model.Product;
 
 import java.util.List;
 

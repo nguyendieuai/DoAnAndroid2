@@ -1,4 +1,4 @@
-package com.example.doanandroid02.Adapter;
+package com.example.doanandroid02.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.doanandroid02.Model.Category;
+import com.example.doanandroid02.model.Category;
 import com.example.doanandroid02.R;
+import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryAdapter extends BaseAdapter {
