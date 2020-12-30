@@ -3,7 +3,7 @@ package com.example.doanandroid02.repositories;
 
 import com.example.doanandroid02.retrofit.DataClient;
 import com.example.doanandroid02.retrofit.RetrofitClientInstance;
-import com.example.myapplicationbottmi.models.Product;
+import com.example.doanandroid02.models.Product;
 
 
 import java.util.List;

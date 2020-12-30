@@ -2,7 +2,7 @@ package com.example.doanandroid02.repositories;
 
 import com.example.doanandroid02.retrofit.DataClient;
 import com.example.doanandroid02.retrofit.RetrofitClientInstance;
-import com.example.myapplicationbottmi.models.Category;
+import com.example.doanandroid02.models.Category;
 
 
 import java.util.List;

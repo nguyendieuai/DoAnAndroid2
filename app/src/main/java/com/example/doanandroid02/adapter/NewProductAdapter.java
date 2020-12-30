@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doanandroid02.R;
-import com.example.myapplicationbottmi.models.Product;
+import com.example.doanandroid02.models.Product;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;

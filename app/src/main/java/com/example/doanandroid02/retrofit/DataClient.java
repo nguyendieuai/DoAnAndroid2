@@ -1,8 +1,8 @@
 package com.example.doanandroid02.retrofit;
 
 
-import com.example.myapplicationbottmi.models.Category;
-import com.example.myapplicationbottmi.models.Product;
+import com.example.doanandroid02.models.Category;
+import com.example.doanandroid02.models.Product;
 
 import java.util.List;
 
