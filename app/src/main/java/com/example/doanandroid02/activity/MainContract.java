@@ -1,8 +1,9 @@
 package com.example.doanandroid02.activity;
 import com.example.doanandroid02.BasePresenter;
 import com.example.doanandroid02.BaseView;
-import com.example.myapplicationbottmi.models.Category;
-import com.example.myapplicationbottmi.models.Product;
+import com.example.doanandroid02.models.Category;
+import com.example.doanandroid02.models.Product;
+
 
 import java.util.List;
 
@@ -13,10 +14,12 @@ public interface MainContract {
         void hideProgressBar();
         void updateListProduct(List<Product> products);
         void updateListCategories(List<Category> categories);
+        void updateListProductById(List<Product> productList);
     }
 
     interface Presenter extends BasePresenter {
         void loadCategories();
         void loadProducts();
+        void findProducts();
     }
 }

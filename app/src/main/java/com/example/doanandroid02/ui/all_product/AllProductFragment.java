@@ -17,8 +17,8 @@ import com.example.doanandroid02.R;
 import com.example.doanandroid02.activity.MainContract;
 import com.example.doanandroid02.activity.MainPresenter;
 import com.example.doanandroid02.adapter.ProductAdapter;
-import com.example.myapplicationbottmi.models.Category;
-import com.example.myapplicationbottmi.models.Product;
+import com.example.doanandroid02.models.Category;
+import com.example.doanandroid02.models.Product;
 
 import java.util.List;
 
@@ -72,6 +72,11 @@ public class AllProductFragment extends Fragment implements MainContract.View {
 
     @Override
     public void updateListCategories(List<Category> categories) {
+
+    }
+
+    @Override
+    public void updateListProductById(List<Product> productList) {
 
     }
 

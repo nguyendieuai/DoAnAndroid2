@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doanandroid02.R;
-import com.example.myapplicationbottmi.models.Product;
+import com.example.doanandroid02.models.Product;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
@@ -35,9 +35,9 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.It
 
         public ItemHolder(@NonNull View itemView){
             super(itemView);
-            imgSanPham = itemView.findViewById(R.id.imgSanPham);
-            textTenSp = itemView.findViewById(R.id.textTenSp);
-            textGiaSp = itemView.findViewById(R.id.textGiaSp);
+            imgSanPham = itemView.findViewById(R.id.imgSanPhamDesc);
+            textTenSp = itemView.findViewById(R.id.textTenSpDesc);
+            textGiaSp = itemView.findViewById(R.id.textGiaSpDesc);
         }
     }
 
@@ -55,9 +55,7 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.It
         holder.textTenSp.setText(product.getTen());
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         holder.textGiaSp.setText(decimalFormat.format(product.gia_sp) + "VND");
-        Picasso.with(context).load("http://192.168.102.2/doan-laravel/public/upload/" + product.getAnh())
-                .placeholder(R.drawable.ic_launcher_foreground)
-                .error(R.drawable.ic_launcher_background)
+        Picasso.with(context).load("http://192.168.56.1/doan-laravel/public/upload/" + product.getAnh())
                 .resize(1000,1000)
                 .centerCrop()
                 .into(holder.imgSanPham);
