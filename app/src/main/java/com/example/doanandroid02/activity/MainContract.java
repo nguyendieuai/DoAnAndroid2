@@ -14,10 +14,12 @@ public interface MainContract {
         void hideProgressBar();
         void updateListProduct(List<Product> products);
         void updateListCategories(List<Category> categories);
+        void updateListProductById(List<Product> productList);
     }
 
     interface Presenter extends BasePresenter {
         void loadCategories();
         void loadProducts();
+        void findProducts();
     }
 }

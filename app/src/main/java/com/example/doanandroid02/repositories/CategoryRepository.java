@@ -18,10 +18,7 @@ import retrofit2.Retrofit;
 public class CategoryRepository {
     DataClient api = APIService.getService();
     public static List<Category> categories;
-    public CategoryRepository(){
-//        Retrofit adapter = RetrofitClientInstance.getClient();
-//        api = adapter.create(DataClient.class);
-    }
+
     public void loadAll(DataCallBack<Category> dataCallBack) {
         api.getCategory().enqueue(new Callback<List<Category>>() {
             @Override
@@ -42,7 +39,8 @@ public class CategoryRepository {
             }
         });
     }
-    public void find(){
+
+    public void find() {
 
     }
 }
