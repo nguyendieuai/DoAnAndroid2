@@ -1,6 +1,7 @@
 package com.example.doanandroid02.repositories;
 
 
+import com.example.doanandroid02.retrofit.APIService;
 import com.example.doanandroid02.retrofit.DataClient;
 import com.example.doanandroid02.retrofit.RetrofitClientInstance;
 import com.example.doanandroid02.models.Product;
@@ -14,11 +15,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class ProductRepository {
-    DataClient api;
+    DataClient api = APIService.getService();
     public static List<Product> products;
     public ProductRepository(){
-        Retrofit adapter = RetrofitClientInstance.getRetrofitInstance();
-        api = adapter.create(DataClient.class);
+//        Retrofit adapter = RetrofitClientInstance.getRetrofitInstance();
+//        api = adapter.create(DataClient.class);
     }
     public void loadAll(DataCallBack<Product> dataCallBack){
         api.getProduct().enqueue(new Callback<List<Product>>() {
