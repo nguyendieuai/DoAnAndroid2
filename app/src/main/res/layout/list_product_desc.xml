@@ -6,6 +6,7 @@
     android:layout_margin="5dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewDesc"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:paddingBottom="5dp"

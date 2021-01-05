@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doanandroid02.R;
 import com.example.doanandroid02.adapter.ProductAdapter;
+import com.example.doanandroid02.adapter.ProductByIdAdapter;
 import com.example.doanandroid02.models.Category;
 import com.example.doanandroid02.models.Product;
 
@@ -22,7 +23,7 @@ public class ProductByIdActivity extends AppCompatActivity implements MainContra
 
 
     RecyclerView recyclerView;
-    ProductAdapter productAdapter;
+    ProductByIdAdapter productByIdAdapter;
     MainContract.Presenter mPresenter;
     public static String category_id;
     String category_name;
@@ -84,9 +85,9 @@ public class ProductByIdActivity extends AppCompatActivity implements MainContra
     }
 
     public void updateListProductById(List<Product> productList) {
-        productAdapter = new ProductAdapter(productList, getApplicationContext());
+        productByIdAdapter = new ProductByIdAdapter(productList, getApplicationContext());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
-        recyclerView.setAdapter(productAdapter);
+        recyclerView.setAdapter(productByIdAdapter);
     }
 }
