@@ -17,11 +17,8 @@ import retrofit2.Retrofit;
 public class ProductRepository {
     DataClient api = APIService.getService();
     public static List<Product> products;
-    public ProductRepository(){
-//        Retrofit adapter = RetrofitClientInstance.getRetrofitInstance();
-//        api = adapter.create(DataClient.class);
-    }
-    public void loadAll(DataCallBack<Product> dataCallBack){
+
+    public void loadAll(DataCallBack<Product> dataCallBack) {
         api.getProduct().enqueue(new Callback<List<Product>>() {
 
             @Override
@@ -44,7 +41,7 @@ public class ProductRepository {
     }
 
 
-    void find(int id){
+    void find(int id) {
 
     }
 }

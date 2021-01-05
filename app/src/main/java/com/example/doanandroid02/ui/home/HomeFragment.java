@@ -73,4 +73,9 @@ public class HomeFragment extends Fragment implements MainContract.View {
 
     }
 
+    @Override
+    public void updateListProductById(List<Product> productList) {
+
+    }
+
 }

@@ -75,4 +75,9 @@ public class AllProductFragment extends Fragment implements MainContract.View {
 
     }
 
+    @Override
+    public void updateListProductById(List<Product> productList) {
+
+    }
+
 }
